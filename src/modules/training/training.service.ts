@@ -10,7 +10,7 @@ export class TrainingService {
 
   async analysisAI(trainingData) {
     try {
-
+      await this.telegramService.sendMessage('Authorized successfully, generating analysis...');
       if (trainingData.length == 0) {
         await this.telegramService.sendMessage('Failed to get training data');
       }
@@ -25,7 +25,7 @@ export class TrainingService {
             including a detailed analysis of important performance metrics such as heart rate, pace, distance, and elevation gain. 
             Highlight any trends or patterns in my training sessions, and compare them to previous workouts. 
             Additionally, include specific recommendations and strategies that can help me improve my performance based on this data, 
-            presented in a summarized format: ${JSON.stringify(trainingData)}`,
+            presented in a summarized format avoiding a longer message: ${JSON.stringify(trainingData)}`,
           },
         ],
       });
